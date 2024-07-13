@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+</head>
+<body>
+    <form id="fm" method="get">
+        Name: <input type="text" name="nm"><br>
+        Email: <input type="email" name="em"><br>
+        <button type="submit" onclick="set('/insert', event)">Insert</button>
+        <button type="submit" onclick="set('/update', event)">Update</button>
+        <button type="submit" onclick="set('/read', event)">Read</button>
+        <button type="submit" onclick="set('/delete', event)">Delete</button>
+    </form>
+    <script>
+        function set(path, event) {
+            event.preventDefault();
+            document.getElementById('fm').action = 'http://localhost:1234' + path;
+            document.getElementById('fm').submit();
+        }
+    </script>
+</body>
+</html>
